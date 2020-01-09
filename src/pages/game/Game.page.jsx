@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import './Game.styles.scss';
-import img0 from '../../utillities/img/0.jpg';
+import imagesArr from '../../utillities/images';
 import LeftSection from '../../components/left-section/LeftSection.component';
 
 class Game extends Component {
   state = {
-    currentImg: img0
+    numberWrong: 0
   }
 
   render() {
-    const { currentImg } = this.state;
+    const { numberWrong } = this.state;
 
     return (
       <div className="game">
-        <LeftSection img={currentImg} />
+        <LeftSection img={imagesArr[numberWrong]} />
 
         <section className="right">
           right
