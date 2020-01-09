@@ -23,8 +23,20 @@
       background-color: grey;
       padding: 0.5rem;
 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
       img {
         width: 100%;
+
+        @media(orientation: landscape) {
+          width: 50%;
+        }
+
+        @media(min-width: 1024px) and (orientation: landscape) {
+          width: 100%;
+        }
       }
     }
   }
@@ -34,6 +46,7 @@
     flex-basis: 50%;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
