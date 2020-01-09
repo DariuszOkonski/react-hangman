@@ -4,7 +4,7 @@ import './SingleButton.styles.scss';
 const SingleButton = (props) => {
   return (
     <div className="single-button">
-      S
+      {props.letter}
     </div>
   );
 }
