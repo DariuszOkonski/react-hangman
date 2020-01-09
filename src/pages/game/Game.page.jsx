@@ -3,6 +3,7 @@ import './Game.styles.scss';
 import imagesArr from '../../utillities/images';
 // import { randomWord } from '../../utillities/words';
 import LeftSection from '../../components/left-section/LeftSection.component';
+import AlphabetButtons from '../../components/alphabet-buttons/AlphabetButtons.component';
 
 class Game extends Component {
   state = {
@@ -22,6 +23,8 @@ class Game extends Component {
           <h6>Number wrong: {numberWrong}</h6>
 
           <h4>{guessedWord}</h4>
+
+          <AlphabetButtons />
         </section>
       </div>
     );
