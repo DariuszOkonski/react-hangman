@@ -1,0 +1,21 @@
+.single-button {
+  width: 25px;
+  height: 25px;
+  margin: 0.2rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 25px;
+  background-color: orange;
+  box-shadow: 0px 5px 0px 0px darken($color: orange, $amount: 10);
+  transition: background-color .2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($color: orange, $amount: 10);
+  }
+
+  &.marked {
+    background-color: grey;
+  }
+}
