@@ -9,5 +9,11 @@
 body {
   margin: 0;
   padding: 0;
-  min-height: 200vh;
+}
+
+.App {
+  background-color: yellow;
+  min-height: calc(100vh - 56px - 40px);
+  margin-top: 56px;
+  margin-bottom: 40px;
 }
