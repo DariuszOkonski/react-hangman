@@ -1,12 +1,15 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import Navigation from './components/navigation/Navigation.component';
 
 function App() {
   return (
-    <div className="App">
-      <Navigation />
+    <BrowserRouter>
+      <div className="App">
+        <Navigation />
 
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
