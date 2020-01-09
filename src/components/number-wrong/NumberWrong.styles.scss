@@ -1,0 +1,11 @@
+.number-wrong {
+  font-size: 0.9rem;
+
+  @media(min-width: 360px) {
+    font-size: 1.1rem;
+  }
+
+  @media(min-width: 1024px) {
+    font-size: 1.6rem;
+  }
+}
