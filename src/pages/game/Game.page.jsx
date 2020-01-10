@@ -15,6 +15,10 @@ class Game extends Component {
     guesseWord: '-l---ly',
   }
 
+  handleAlphabetButton = (letter) => {
+    console.log(letter)
+  }
+
   render() {
     const { numberWrong, guesseWord } = this.state;
 
@@ -27,7 +31,7 @@ class Game extends Component {
 
           <GuesseWord guesseWord={guesseWord} />
 
-          <AlphabetButtons />
+          <AlphabetButtons handleAlphabetButton={this.handleAlphabetButton} />
 
           <RestartButton />
         </section>
