@@ -4,12 +4,17 @@ import uuid from 'uuid/v1';
 import SingleButton from './single-button/SingleButton.component';
 import alphabet from '../../utillities/alphabet';
 
-const AlphabetButtons = () => {
+const AlphabetButtons = (props) => {
 
   return (
     <div className="alphabet-buttons">
       {
-        alphabet.map(letter => <SingleButton key={uuid()} letter={letter} />)
+        alphabet.map(letter =>
+          <SingleButton
+            key={uuid()}
+            letter={letter}
+            handleAlphabetButton={props.handleAlphabetButton}
+          />)
       }
     </div>
   );
