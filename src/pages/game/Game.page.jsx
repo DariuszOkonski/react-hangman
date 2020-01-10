@@ -6,6 +6,7 @@ import LeftSection from '../../components/left-section/LeftSection.component';
 import AlphabetButtons from '../../components/alphabet-buttons/AlphabetButtons.component';
 import RestartButton from '../../components/restart-button/RestartButton.component';
 import NumberWrong from '../../components/number-wrong/NumberWrong.component';
+import GuesseWord from '../../components/guesse-world/GuesseWord.component';
 
 class Game extends Component {
   state = {
@@ -24,7 +25,7 @@ class Game extends Component {
         <section className="right">
           <NumberWrong numberWrong={numberWrong} />
 
-          <h4>{guesseWord}</h4>
+          <GuesseWord guesseWord={guesseWord} />
 
           <AlphabetButtons />
 
