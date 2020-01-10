@@ -11,6 +11,22 @@
   transition: background-color .2s;
   cursor: pointer;
 
+  @media(min-width: 360px) {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+    line-height: 30px;
+  }
+
+  @media(min-width: 1024px) {
+    width: 40px;
+    height: 40px;
+    margin: 0.4rem;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    line-height: 40px;
+  }
+
   &:hover {
     background-color: darken($color: orange, $amount: 10);
   }
