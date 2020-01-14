@@ -8,12 +8,11 @@ const AlphabetButtons = (props) => {
   return (
     <div className="alphabet-buttons">
       {
-        props.alphabet.map(letter =>
+        props.alphabet.map(element =>
           <SingleButton
-            key={uuid()}
-            letter={letter}
+            key={element.id}
             handleAlphabetButton={props.handleAlphabetButton}
-            clicked={false}
+            {...element}
           />)
       }
     </div>
