@@ -1,13 +1,13 @@
 import React from 'react';
 import './SingleButton.styles.scss';
 
-const SingleButton = (props) => {
+const SingleButton = ({ clicked, letter, id, handleAlphabetButton }) => {
   return (
     <div
-      className={`single-button ${props.clicked && "marked"}`}
-      onClick={!props.clicked ? () => props.handleAlphabetButton(props.letter) : null}
+      className={`single-button ${clicked && "marked"}`}
+      onClick={!clicked ? () => handleAlphabetButton(letter, id) : null}
     >
-      {props.letter}
+      {letter}
     </div>
   );
 }
