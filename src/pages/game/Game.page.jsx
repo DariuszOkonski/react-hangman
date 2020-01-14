@@ -52,7 +52,8 @@ class Game extends Component {
     if (this.state.numberWrong === imagesArr.length - 2) {
       this.setState({
         endGame: true,
-        resultText: 'You Lose!!!'
+        resultText: 'You Lose!!!',
+        guesseWord: this.state.currentWord
       })
     }
   }
