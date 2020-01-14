@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { randomWord } from '../../utillities/words'
 import './Game.styles.scss';
 import imagesArr from '../../utillities/images';
 import LeftSection from '../../components/left-section/LeftSection.component';
@@ -13,7 +14,7 @@ class Game extends Component {
   state = {
     numberWrong: 0,
     numberCorrect: 0,
-    currentWord: 'plently',
+    currentWord: randomWord(),
     guesseWord: '',
     alphabet: alphabet,
     endGame: false,
@@ -80,6 +81,10 @@ class Game extends Component {
     })
   }
 
+  handleRestart = () => {
+    window.location.reload();
+  }
+
   componentDidMount() {
     this.handleResetGuesseWord();
   }
@@ -116,7 +121,7 @@ class Game extends Component {
             <Result>{this.state.resultText}</Result>
           }
 
-          <RestartButton />
+          <RestartButton handleRestart={this.handleRestart} />
         </section>
       </div>
     );
