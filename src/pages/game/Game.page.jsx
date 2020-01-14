@@ -12,31 +12,46 @@ import Result from '../../components/result/Result';
 class Game extends Component {
   state = {
     numberWrong: 0,
+    numberCorrect: 0,
     currentWord: 'plently',
     guesseWord: '',
     alphabet: alphabet,
     endGame: false,
+    resultText: '',
   }
 
   handleAlphabetButton = (letter, id) => {
+    const index = this.state.currentWord.indexOf(letter);
 
-    console.log(this.state.currentWord.indexOf(letter));
+    if (index !== -1) {
+      this.replaceLetter(letter);
 
-    if (this.state.currentWord.indexOf(letter) !== -1) {
-      console.log('znalazl')
     } else {
       this.endGame();
-
       this.setState({ numberWrong: this.state.numberWrong + 1 });
     }
 
     this.blockUsedButton(id);
   }
 
+  replaceLetter(letter) {
+    let guesseWord = [...this.state.guesseWord];
+
+    for (let i = 0; i < this.state.currentWord.length; i++) {
+      if (this.state.currentWord[i] === letter)
+        guesseWord.splice(i, 1, letter);
+    }
+
+    this.setState({
+      guesseWord,
+    })
+  }
+
   endGame() {
     if (this.state.numberWrong === imagesArr.length - 2) {
       this.setState({
         endGame: true,
+        resultText: 'You Lose!!!'
       })
     }
   }
@@ -69,6 +84,18 @@ class Game extends Component {
     this.handleResetGuesseWord();
   }
 
+  componentDidUpdate() {
+    const current = [...this.state.currentWord];
+    const guessed = [...this.state.guesseWord];
+
+    if ((JSON.stringify(current) === JSON.stringify(guessed)) && !this.state.endGame) {
+      this.setState({
+        endGame: true,
+        resultText: 'You Win!!!'
+      })
+    }
+  }
+
   render() {
     const { numberWrong, guesseWord } = this.state;
 
@@ -86,7 +113,7 @@ class Game extends Component {
               handleAlphabetButton={this.handleAlphabetButton}
               alphabet={this.state.alphabet}
             /> :
-            <Result>You Lose!!!</Result>
+            <Result>{this.state.resultText}</Result>
           }
 
           <RestartButton />
