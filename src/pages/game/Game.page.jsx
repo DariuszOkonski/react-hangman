@@ -19,6 +19,7 @@ class Game extends Component {
     alphabet: alphabet,
     endGame: false,
     resultText: '',
+    restart: false
   }
 
   handleAlphabetButton = (letter, id) => {
@@ -83,7 +84,31 @@ class Game extends Component {
   }
 
   handleRestart = () => {
-    window.location.reload();
+    // window.location.reload();
+    this.setState({
+      numberWrong: 0,
+      numberCorrect: 0,
+      currentWord: randomWord(),
+      guesseWord: '',
+      endGame: false,
+      resultText: '',
+      restart: true,
+    })
+    // this.handleResetGuesseWord();
+    this.resetAlphabet();
+  }
+
+  resetAlphabet() {
+    let alphabet = [...this.state.alphabet];
+
+    alphabet.forEach(el => {
+      if (el.clicked)
+        el.clicked = false;
+    })
+
+    this.setState({
+      alphabet
+    })
   }
 
   componentDidMount() {
@@ -98,6 +123,13 @@ class Game extends Component {
       this.setState({
         endGame: true,
         resultText: 'You Win!!!'
+      })
+    }
+
+    if (this.state.restart) {
+      this.handleResetGuesseWord();
+      this.setState({
+        restart: false,
       })
     }
   }
