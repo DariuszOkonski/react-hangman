@@ -1,0 +1,15 @@
+.home {
+  min-height: calc(100vh - 56px - 40px);
+  margin-top: 56px;
+  margin-bottom: 40px;
+  padding: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+
+  .jumbotron {
+    width: 100%;
+  }
+}
