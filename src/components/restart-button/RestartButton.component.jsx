@@ -1,9 +1,9 @@
 import React from 'react';
 import './RestartButton.styles.scss';
 
-const RestartButton = () => {
+const RestartButton = ({ handleRestart }) => {
   return (
-    <button className="restart-button">Restart?</button>
+    <button onClick={handleRestart} className="restart-button">Restart?</button>
   );
 }
 
